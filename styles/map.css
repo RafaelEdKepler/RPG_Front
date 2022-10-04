@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  paddingL: 0;
+}
+
+.map_div {
+  background-image: url("./mapa.jpg");
+  background-size: cover;
+  background-color: #000;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal {
+  background-color: #FFF;
+  border-radius: 5rem;
+  height: 90rem;
+  width: 90rem;
+  padding: 4rem;
+}
+
+.modalInfo {
+  display: block;  
+}
+
+.modalInfo span {
+  font-size: 5rem;
+}
+
+.modalInfo input {
+  margin-left: 1rem;  
+  width: 55rem;
+  height: 5rem;
+}
+
+.modalInfo label {
+  font-style: italic;
+  font-size: 3rem;  
+}
