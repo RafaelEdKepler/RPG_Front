@@ -16,7 +16,7 @@ export default function Info({data, handleClick, dataModal} : any) {
     >
       {data && data.map((item : any) => (
         <>          
-          <InfoValues id="container_map_info" key={item} positionX={item.x_mouse} positionY={item.y_mouse} onClick={(e) => handleInfoClick(e, item)}/>
+          <InfoValues id="container_map_info" key={item} positionX={item.x_mouse} positionY={item.y_mouse} onClick={(e: any) => handleInfoClick(e, item)}/>
         </>
       ))}
     </ContainerInfo>

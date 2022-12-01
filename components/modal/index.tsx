@@ -4,6 +4,7 @@ import { Button, ButtonContainer, Container, ModalInfo, ModalInfoContainer } fro
 
 export interface modalProps {
   modalInfo: {
+    id: string,
     name: string,
     description: string,
     obs: string,

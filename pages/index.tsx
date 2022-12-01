@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { MouseEventHandler, useEffect, useState } from 'react';
 import Info from '../components/info';
 import Modal from '../components/modal';
+import Tab from '../components/tab';
 import { Container } from '../styles/style';
 import api from "../utils/api";
 
@@ -53,26 +54,30 @@ const Home: NextPage = () => {
   }, [])
 
   return (
-    <Container
-      onClick={(e : any) => handleOpenModal(e)}
-      id="container_map"
-    >
-      {isOpen && (
-        <Modal
-          modalInfo={dataModal}
-          positionX={pageX}
-          positionY={pageY}
-          reloadFunction={reloadFunction}
-        />
-      )}
-      {data && data.length > 0 && (
-        <Info
-          data={data}
-          dataModal={setDataModal}
-          handleClick={handleOpenModal}
-        />
-      )}
-    </Container>
+    <>
+    
+      <Container
+        onClick={(e : any) => handleOpenModal(e)}
+        id="container_map"
+      >
+        {isOpen && (
+          <Modal
+            modalInfo={dataModal}
+            positionX={pageX}
+            positionY={pageY}
+            reloadFunction={reloadFunction}
+          />
+        )}
+        {data && data.length > 0 && (
+          <Info
+            data={data}
+            dataModal={setDataModal}
+            handleClick={handleOpenModal}
+          />
+        )}
+      </Container>
+      <Tab/>
+    </>
   )
 }
 
