@@ -30,6 +30,7 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
 `;
 
 export const Image = styled.img<ImageProps>`
@@ -56,4 +57,5 @@ export const HandleTab = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 `;

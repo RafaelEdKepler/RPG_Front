@@ -3,7 +3,8 @@ import { Container } from "../modal/style";
 
 interface InfoProps {
   positionX: number,
-  positionY: number
+  positionY: number,
+  image: string
 }
 
 export const ContainerInfo = styled(Container)`
@@ -11,14 +12,11 @@ export const ContainerInfo = styled(Container)`
 `
 
 export const InfoValues = styled.div<InfoProps>`
-  width: 8rem;
-  height: 8rem;
-  background: #C0C0C0;
-  border-radius: 0.8rem;
-  border-color: #000;
-  border-style: solid;
-  border-width: 0.25rem;
+  width: 2rem;
+  height: 2rem;
   position: absolute;
   top: ${props => props.positionY}px;
   left: ${props => props.positionX}px;
+  background-image: ${props => props.image && `url(${props.image})`};
+  background-size: cover;
 `;

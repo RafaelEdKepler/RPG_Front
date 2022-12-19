@@ -9,7 +9,7 @@ export const Container = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 3;
   background-color: rgba(10,23,55,0.5);
 `;
 

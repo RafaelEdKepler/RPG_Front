@@ -55,30 +55,27 @@ const Home: NextPage = () => {
   }, [])
 
   return (
-    <MapProvider>
-
-      <Container
-        onClick={(e: any) => handleOpenModal(e)}
-        id="container_map"
-      >
-        {isOpen && (
-          <Modal
-            modalInfo={dataModal}
-            positionX={pageX}
-            positionY={pageY}
-            reloadFunction={reloadFunction}
-          />
-        )}
-        {data && data.length > 0 && (
-          <Info
-            data={data}
-            dataModal={setDataModal}
-            handleClick={handleOpenModal}
-          />
-        )}
-        <Tab />
-      </Container>
-    </MapProvider>
+    <Container
+      onClick={(e: any) => handleOpenModal(e)}
+      id="container_map"
+    >
+      {isOpen && (
+        <Modal
+          modalInfo={dataModal}
+          positionX={pageX}
+          positionY={pageY}
+          reloadFunction={reloadFunction}
+        />
+      )}
+      {data && data.length > 0 && (
+        <Info
+          data={data}
+          dataModal={setDataModal}
+          handleClick={handleOpenModal}
+        />
+      )}
+      <Tab />
+    </Container>
   )
 }
 
