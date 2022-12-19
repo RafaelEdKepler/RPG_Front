@@ -3,19 +3,20 @@ import { MouseEventHandler, useEffect, useState } from 'react';
 import Info from '../components/info';
 import Modal from '../components/modal';
 import Tab from '../components/tab';
+import { MapProvider } from '../hooks/useMap';
 import { Container } from '../styles/style';
 import api from "../utils/api";
 
 interface dataArrayProps {
-  name: string,
-  description: string,
-  obs: string,
-  language: string,
-  size: string,
-  domain: string,
-  actualLocation : string
-  y_mouse: number,
-  x_mouse: number
+  name?: string,
+  description?: string,
+  obs?: string,
+  language?: string,
+  size?: string,
+  domain?: string,
+  actualLocation?: string
+  y_mouse?: number,
+  x_mouse?: number
 }
 
 const Home: NextPage = () => {
@@ -24,23 +25,23 @@ const Home: NextPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [pageX, setPageX] = useState<number>(0);
   const [pageY, setPageY] = useState<number>(0);
-  const [dataModal, setDataModal] = useState<dataArrayProps>();
+  const [dataModal, setDataModal] = useState<dataArrayProps>({});
 
   const reloadFunction = async () => {
     await fetchData();
   }
 
   const fetchData = async () => {
-    const response = await api.get("/getAll");    
+    const response = await api.get("/getAll");
     if (response.status === 200) {
       setData(response.data)
     }
   }
 
-  const handleOpenModal = (e : any) => {
+  const handleOpenModal = (e: any) => {
     if (e.target.id === `container_map` || e.target.id === "container_map_info") {
       if (e.target.id === `container_map`) {
-        setDataModal();
+        setDataModal({});
       }
       setPageX(e.pageX);
       setPageY(e.pageY);
@@ -54,10 +55,10 @@ const Home: NextPage = () => {
   }, [])
 
   return (
-    <>
-    
+    <MapProvider>
+
       <Container
-        onClick={(e : any) => handleOpenModal(e)}
+        onClick={(e: any) => handleOpenModal(e)}
         id="container_map"
       >
         {isOpen && (
@@ -75,9 +76,9 @@ const Home: NextPage = () => {
             handleClick={handleOpenModal}
           />
         )}
+        <Tab />
       </Container>
-      <Tab/>
-    </>
+    </MapProvider>
   )
 }
 
