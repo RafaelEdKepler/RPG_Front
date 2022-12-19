@@ -25,7 +25,7 @@ export const Container = styled.div<ContainerProps>`
   border-width: 1pt;
   background: #CCC;
 
-  transition: 0.8s;
+  transition: 0.2s;
 
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ export const Container = styled.div<ContainerProps>`
 `;
 
 export const Image = styled.img<ImageProps>`
-  transition: 0.4s;
+  transition: 0.2s;
   padding: 0.5rem 0;
   width: ${props => props.display === "flex" ? "4rem" : "0"};
   height: 4rem;
@@ -58,4 +58,6 @@ export const HandleTab = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 2;
+
+  cursor: pointer;
 `;

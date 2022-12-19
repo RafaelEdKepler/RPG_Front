@@ -1,9 +1,8 @@
 import type { NextPage } from 'next'
-import { MouseEventHandler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Info from '../components/info';
 import Modal from '../components/modal';
 import Tab from '../components/tab';
-import { MapProvider } from '../hooks/useMap';
 import { Container } from '../styles/style';
 import api from "../utils/api";
 
@@ -16,7 +15,8 @@ interface dataArrayProps {
   domain?: string,
   actualLocation?: string
   y_mouse?: number,
-  x_mouse?: number
+  x_mouse?: number,
+  objective?: string
 }
 
 const Home: NextPage = () => {

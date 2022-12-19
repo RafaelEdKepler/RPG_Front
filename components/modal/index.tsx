@@ -14,7 +14,8 @@ export interface modalProps {
     domain?: string,
     actualLocation?: string,
     y_mouse?: number,
-    x_mouse?: number
+    x_mouse?: number,
+    objective?: string
   },
   positionX: number,
   positionY: number,
@@ -110,6 +111,7 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
       setSize(modalInfo.size);
       setXMouse(xMouse);
       setYMouse(yMouse);
+      setObjective(modalInfo.objective);
     } else {
       setXMouse(positionX);
       setYMouse(positionY);

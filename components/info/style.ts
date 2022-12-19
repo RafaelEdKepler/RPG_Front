@@ -9,6 +9,7 @@ interface InfoProps {
 
 export const ContainerInfo = styled(Container)`
   z-index: 1;
+  background-color: rgba(10,23,55,0.1);
 `
 
 export const InfoValues = styled.div<InfoProps>`
@@ -19,4 +20,5 @@ export const InfoValues = styled.div<InfoProps>`
   left: ${props => props.positionX}px;
   background-image: ${props => props.image && `url(${props.image})`};
   background-size: cover;
+  cursor: pointer;
 `;
