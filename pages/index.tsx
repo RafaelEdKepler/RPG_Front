@@ -1,9 +1,10 @@
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react';
+import Header from '../components/header';
 import Info from '../components/info';
 import Modal from '../components/modal';
 import Tab from '../components/tab';
-import { Container } from '../styles/style';
+import { AppContainer, Container } from '../styles/style';
 import api from "../utils/api";
 
 interface dataArrayProps {
@@ -54,10 +55,12 @@ const Home: NextPage = () => {
   }, [])
 
   return (
-    <Container
+    <AppContainer
       onClick={(e: any) => handleOpenModal(e)}
       id="container_map"
     >
+      <Tab />
+      <Header />
       {isOpen && (
         <Modal
           modalInfo={dataModal}
@@ -66,15 +69,16 @@ const Home: NextPage = () => {
           reloadFunction={reloadFunction}
         />
       )}
-      {data && data.length > 0 && (
-        <Info
-          data={data}
-          dataModal={setDataModal}
-          handleClick={handleOpenModal}
-        />
-      )}
-      <Tab />
-    </Container>
+      <Container>
+        {data && data.length > 0 && (
+          <Info
+            data={data}
+            dataModal={setDataModal}
+            handleClick={handleOpenModal}
+          />
+        )}
+      </Container>
+    </AppContainer>
   )
 }
 

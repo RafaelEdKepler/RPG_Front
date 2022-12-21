@@ -17,6 +17,9 @@ export const TabContainer = styled.div`
   align-items: center;
   height: 100vh;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export const Container = styled.div<ContainerProps>`

@@ -20,7 +20,7 @@ export default function Info({ data, handleClick, dataModal }: any) {
   const handleIconImage = (type: string, objective: string): string => {
     const iconImageWithoutObjective: iconToolTipProps = {
       "0": "./obs.png",
-      "1": "./nao visitado.png",
+      "1": "./nao_visitado.png",
       "2": "./visitada.png",
       "3": "./nao habitado.png",
       "4": "./objetivo.png"
@@ -35,6 +35,7 @@ export default function Info({ data, handleClick, dataModal }: any) {
     if (objective === "1") {
       return iconImageWithObjective[type as keyof iconToolTipProps];
     }
+    console.log('aqui', iconImageWithoutObjective[type as keyof iconToolTipProps])
     return iconImageWithoutObjective[type as keyof iconToolTipProps];
   }
 
@@ -66,6 +67,7 @@ export default function Info({ data, handleClick, dataModal }: any) {
     <ContainerInfo
       id="container_map"
     >
+      {console.log(data)}
       {data && data.map((item: any) => (
         <div key={item.id}>
           <ToolTip text={handleTooltip(item.type)}>

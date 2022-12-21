@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
-import { CustomCursor } from 'react-svg-cursor';
-import { GiMedievalGate } from "react-icons/gi";
 import "../styles/map.css";
+//@ts-ignore
+import { ToastContainer } from 'react-nextjs-toast'
 import { MapProvider } from '../hooks/useMap';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <MapProvider>
         <Component {...pageProps} />;
+        <ToastContainer />
       </MapProvider>
     </>
   )

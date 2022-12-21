@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+// @ts-ignore
+import { toast, ToastContainer } from 'react-nextjs-toast'
 import { useMap } from "../../hooks/useMap";
 import api from "../../utils/api";
 import { Button, ButtonContainer, CheckContainer, Container, ModalInfo, ModalInfoContainer } from "./style"
@@ -56,8 +58,16 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
         height: window.screen.height
       })
       if (response.status === 200) {
-        alert('Deu certo!');
+        toast.notify("Seus dados foram atualizados com sucesso!", {
+          type: "success",
+          title: "Tudo certo!",
+        });
         await reloadFunction();
+      } else {
+        toast.notify("Seus dados não puderam ser atualizados.", {
+          type: "error",
+          title: "Algo deu errado...",
+        });
       }
     } else {
       const response = await api.post("/save", {
@@ -75,8 +85,16 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
         height: window.screen.height
       })
       if (response.status === 200) {
-        alert('Deu certo!');
+        toast.notify("Seus dados foram inseridos com sucesso!", {
+          type: "success",
+          title: "Tudo certo!",
+        });
         await reloadFunction();
+      } else {
+        toast.notify("Seus dados não puderam ser inseridos.", {
+          type: "error",
+          title: "Algo deu errado...",
+        });
       }
     }
   }
@@ -137,6 +155,7 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
         <Container
           id="container_map"
         >
+          <ToastContainer />
           <ModalInfoContainer
             positionX={modalPositionX}
             positionY={modalPositionY}
