@@ -11,12 +11,12 @@ export const Container = styled.div`
   height: 100%;
   z-index: 3;
   background-color: rgba(10,23,55,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ModalInfoContainer = styled.div<ModalInfoContainerProps>`
-  position: absolute;
-  top: ${props => props.positionY}px;
-  left: ${props => props.positionX}px;
   background-image: url("./modal.png");
   background-size: cover;
   display: flex;
@@ -24,7 +24,7 @@ export const ModalInfoContainer = styled.div<ModalInfoContainerProps>`
   border-radius: 5rem;
   height: 40rem;
   width: 60rem;
-  padding: 6rem;
+  padding: 0 6rem;
   font-family: "Caramel", "sans-serif";
 `
 
@@ -45,7 +45,7 @@ export const ModalInfo = styled.div`
 
   input {
     margin-left: 1rem;
-    width: 65rem;
+    width: 47rem;
     height: 1.5rem;
     font-size: 1rem;
     border-style: none;
@@ -60,7 +60,7 @@ export const ModalInfo = styled.div`
   }
 
   &:first-child {
-    margin-top: 2rem;
+    margin-top: 8rem;
   }
 `
 

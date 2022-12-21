@@ -51,7 +51,9 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
         x_mouse: xMouse,
         y_mouse: yMouse,
         objective,
-        type: optionSelected
+        type: optionSelected,
+        width: window.screen.width,
+        height: window.screen.height
       })
       if (response.status === 200) {
         alert('Deu certo!');
@@ -68,7 +70,9 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
         x_mouse: xMouse,
         y_mouse: yMouse,
         type: optionSelected,
-        objective
+        objective,
+        width: window.screen.width,
+        height: window.screen.height
       })
       if (response.status === 200) {
         alert('Deu certo!');
@@ -119,6 +123,13 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
     setLoaded(true);
   }, [])
 
+  let modalPositionX = (window.screen.width * 5) / 100;
+  let modalPositionY = (window.screen.height * 5) / 100;
+  if (window.screen.width === 1080) {
+    modalPositionX = (window.screen.width * 50) / 100;
+    modalPositionY = (window.screen.height * 25) / 100;
+  }
+
   return (
     <>
       {loaded && (
@@ -127,8 +138,8 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
           id="container_map"
         >
           <ModalInfoContainer
-            positionX={550}
-            positionY={50}
+            positionX={modalPositionX}
+            positionY={modalPositionY}
           >
             <ModalInfo>
               <div>

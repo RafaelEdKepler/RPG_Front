@@ -16,6 +16,7 @@ export const TabContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 `;
 
 export const Container = styled.div<ContainerProps>`

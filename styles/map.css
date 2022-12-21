@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  paddingL: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .map_div {
@@ -23,7 +24,7 @@ body {
 }
 
 .modalInfo {
-  display: block;  
+  display: block;
 }
 
 .modalInfo span {
@@ -31,12 +32,12 @@ body {
 }
 
 .modalInfo input {
-  margin-left: 1rem;  
+  margin-left: 1rem;
   width: 55rem;
   height: 5rem;
 }
 
 .modalInfo label {
   font-style: italic;
-  font-size: 3rem;  
+  font-size: 3rem;
 }

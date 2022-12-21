@@ -45,7 +45,6 @@ const Home: NextPage = () => {
       }
       setPageX(e.pageX);
       setPageY(e.pageY);
-      console.log(dataModal);
       setIsOpen(!isOpen)
     }
   }
