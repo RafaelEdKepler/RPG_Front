@@ -22,11 +22,11 @@ export default function Tab() {
         <ToolTip text="Observação">
           <Image src="./Obs.png" alt="Observação" onClick={() => setOptionSelected(0)} selected={optionSelected === 0} display={display} />
         </ToolTip>
-        <ToolTip text="Cidade Visitada">
-          <Image src="./visitada.png" alt="Cidade visitada" onClick={() => setOptionSelected(1)} selected={optionSelected === 1} display={display} />
-        </ToolTip>
         <ToolTip text="Cidade não visitada">
-          <Image src="./nao_visitado.png" alt="Cidade não visitada" onClick={() => setOptionSelected(2)} selected={optionSelected === 2} display={display} />
+          <Image src="./nao_visitado.png" alt="Cidade não visitada" onClick={() => setOptionSelected(1)} selected={optionSelected === 1} display={display} />
+        </ToolTip>
+        <ToolTip text="Cidade Visitada">
+          <Image src="./visitada.png" alt="Cidade visitada" onClick={() => setOptionSelected(2)} selected={optionSelected === 2} display={display} />
         </ToolTip>
         <ToolTip text="Local não habitado">
           <Image src="./nao habitado.png" alt="Local não habitado" onClick={() => setOptionSelected(3)} selected={optionSelected === 3} display={display} />

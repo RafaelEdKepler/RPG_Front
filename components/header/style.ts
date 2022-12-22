@@ -9,4 +9,16 @@ export const Container = styled.div`
   left: 0;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+
+  span {
+    color: #fff;
+    margin-right: 0.5rem;
+  }
+`;
+
+export const Image = styled.img`
+  width: 25px;
+  height: 25px;
+  margin-right: 1rem;
 `;

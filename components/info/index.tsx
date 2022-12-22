@@ -1,14 +1,7 @@
-import { modalProps } from "../modal";
 import ToolTip from "../tooltip";
 import { ContainerInfo, InfoValues } from "./style";
-
-interface iconToolTipProps {
-  "0": string;
-  "1": string;
-  "2": string;
-  "3": string;
-  "4": string;
-}
+import { iconImageWithoutObjective, iconImageWithObjective, iconToolTipProps } from "../../utils/icons";
+import { tooltips } from "../../utils/tooltips";
 
 export default function Info({ data, handleClick, dataModal }: any) {
 
@@ -18,24 +11,9 @@ export default function Info({ data, handleClick, dataModal }: any) {
   }
 
   const handleIconImage = (type: string, objective: string): string => {
-    const iconImageWithoutObjective: iconToolTipProps = {
-      "0": "./obs.png",
-      "1": "./nao_visitado.png",
-      "2": "./visitada.png",
-      "3": "./nao habitado.png",
-      "4": "./objetivo.png"
-    }
-    const iconImageWithObjective: iconToolTipProps = {
-      "0": "./obs_obj.png",
-      "1": "./nao_visitado_obj.png",
-      "2": "./visitada_obj.png",
-      "3": "./nao_habitado_obj.png",
-      "4": "./objetivo_obj.png"
-    }
-    if (objective === "1") {
+    if (objective) {
       return iconImageWithObjective[type as keyof iconToolTipProps];
     }
-    console.log('aqui', iconImageWithoutObjective[type as keyof iconToolTipProps])
     return iconImageWithoutObjective[type as keyof iconToolTipProps];
   }
 
@@ -52,13 +30,6 @@ export default function Info({ data, handleClick, dataModal }: any) {
   }
 
   const handleTooltip = (type: string): string => {
-    const tooltips: iconToolTipProps = {
-      "0": "Observação",
-      "1": "Local não visitado",
-      "2": "Local visitado",
-      "3": "Não habitado",
-      "4": "Objetivo atual"
-    }
     return tooltips[type as keyof iconToolTipProps];
   }
 
