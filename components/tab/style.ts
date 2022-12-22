@@ -27,7 +27,7 @@ export const Container = styled.div<ContainerProps>`
   width: ${props => props.display === "flex" ? "5rem" : "0"};
   border-style: solid;
   border-width: 1pt;
-  background: #CCC;
+  backdrop-filter: blur(12px);
 
   transition: 0.2s;
 
@@ -39,24 +39,24 @@ export const Container = styled.div<ContainerProps>`
 
 export const Image = styled.img<ImageProps>`
   transition: 0.2s;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.25rem;
   width: ${props => props.display === "flex" ? "4rem" : "0"};
   height: 4rem;
   margin-top: 2rem;
   cursor: pointer;
   border-style: ${props => props.display === "flex" ? "solid" : "none"};
-  border-color: ${props => props.selected ? "#daa520" : "#CCC"};
-
-  &:hover {
-    border-color: #daa520;
-  }
+  border-color: ${props => props.selected ? "#000" : "rgba(0, 0, 0, 0.0)"};
+  border-width: 1pt;
+  border-radius: 5px;
 `;
 
 export const HandleTab = styled.div`
-  background-color: #CCC;
+  backdrop-filter: blur(12px);
   width: 2rem;
   height: 8rem;
   border-radius: 0 5px 5px 0;
+  border-style: solid;
+  border-width: 1pt 1pt 1pt 0pt;
 
   display: flex;
   justify-content: center;
