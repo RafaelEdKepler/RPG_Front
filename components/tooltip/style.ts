@@ -6,7 +6,7 @@ export const Message = styled.div`
   border-width: 0.1pt;
   border-color: #fff;
   border-radius: 5px;
-  background: #000;
+  backdrop-filter: blur(32px);
   padding: 0.1rem 0.3rem;
   display: flex;
   justify-content: center;
