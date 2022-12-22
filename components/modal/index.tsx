@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // @ts-ignore
-import { toast, ToastContainer } from 'react-nextjs-toast'
+import { toast } from 'react-nextjs-toast'
 import { useMap } from "../../hooks/useMap";
 import api from "../../utils/api";
 import { Button, ButtonContainer, CheckContainer, Container, ModalContainer, ModalInfo, ModalInfoContainer } from "./style"
@@ -231,7 +231,7 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction,
                 <input type="checkbox" checked={objective === "1"} onChange={(e) => setObjective(e.target.checked ? "1" : "0")} />
               </ModalInfo>
               <ButtonContainer>
-                <Button onClick={handleSave}>Salvar</Button>
+                <Button confirm onClick={handleSave}>Salvar</Button>
                 <Button onClick={handleDelete}>Excluir</Button>
               </ButtonContainer>
             </ModalInfoContainer>

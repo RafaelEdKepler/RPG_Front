@@ -5,6 +5,10 @@ interface ModalInfoContainerProps {
   positionY: number
 }
 
+interface ButtonProps {
+  confirm?: boolean;
+}
+
 export const Container = styled.div`
   position: absolute;
   width: 100%;
@@ -18,7 +22,7 @@ export const Container = styled.div`
 
 export const ModalContainer = styled.div`
   border-radius: 15px;
-  background-image: url("./modal.jpg");
+  background-image: url("./modal.webp");
 `;
 
 export const ModalInfoContainer = styled.div<ModalInfoContainerProps>`
@@ -83,15 +87,29 @@ export const CheckContainer = styled.div`
 
 export const ButtonContainer = styled.div`
   width: 100%;
+  height: 100%;
   margin-top: 3rem;
   display: flex;
   justify-content: space-evenly;
+  align-items: flex-end;
+  padding: 0 0 3rem 0;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonProps>`
   width: 10rem;
   height: 2rem;
   font-size: 1.5rem;
   font-family: "Caramel", "sans-serif";
-  border-style: none;
+  border-radius: 5px;
+
+  border-style: solid;
+  border-width: 1pt;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  &:hover {
+    border-color: ${props => props.confirm ? "#00FF00" : "#F00E0E"};
+  }
 `;
