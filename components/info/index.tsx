@@ -29,8 +29,8 @@ export default function Info({ data, handleClick, dataModal }: any) {
     return mouse;
   }
 
-  const handleTooltip = (type: string): string => {
-    return tooltips[type as keyof iconToolTipProps];
+  const handleTooltip = (type: string, name: string): string => {
+    return `${tooltips[type as keyof iconToolTipProps]} - ${name}`;
   }
 
 
@@ -41,7 +41,7 @@ export default function Info({ data, handleClick, dataModal }: any) {
       {console.log(data)}
       {data && data.map((item: any) => (
         <div key={item.id}>
-          <ToolTip text={handleTooltip(item.type)}>
+          <ToolTip text={handleTooltip(item.type, item.name)}>
             <InfoValues id="container_map_info" key={item} positionX={handleInfoPosition("width", item.x_mouse, item.width)} positionY={handleInfoPosition("height", item.y_mouse, item.height)} onClick={(e: any) => handleInfoClick(e, item)} image={handleIconImage(item.type, item.objective)} />
           </ToolTip>
         </div>

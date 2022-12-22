@@ -11,7 +11,6 @@ export const Container = styled.div`
   background: url("./mapa.jpg");
   background-size: cover;
   background-color: #000;
-  margin-top: 2.5rem;
   -moz-background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;

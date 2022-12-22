@@ -29,7 +29,7 @@ export default function Tab() {
           <Image src="./visitada.png" alt="Cidade visitada" onClick={() => setOptionSelected(2)} selected={optionSelected === 2} display={display} />
         </ToolTip>
         <ToolTip text="Local não habitado">
-          <Image src="./nao habitado.png" alt="Local não habitado" onClick={() => setOptionSelected(3)} selected={optionSelected === 3} display={display} />
+          <Image src="./nao_habitado.png" alt="Local não habitado" onClick={() => setOptionSelected(3)} selected={optionSelected === 3} display={display} />
         </ToolTip>
         <ToolTip text="Objetivo atual">
           <Image src="./objetivo.png" alt="Objetivo atual" onClick={() => setOptionSelected(4)} selected={optionSelected === 4} display={display} />

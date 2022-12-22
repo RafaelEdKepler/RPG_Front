@@ -16,8 +16,12 @@ export const Container = styled.div`
   align-items: center;
 `;
 
+export const ModalContainer = styled.div`
+  border-radius: 15px;
+  background-image: url("./modal.jpg");
+`;
+
 export const ModalInfoContainer = styled.div<ModalInfoContainerProps>`
-  background-image: url("./modal.png");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -25,7 +29,12 @@ export const ModalInfoContainer = styled.div<ModalInfoContainerProps>`
   height: 40rem;
   width: 60rem;
   padding: 0 6rem;
-  font-family: "Caramel", "sans-serif";
+  font-family: "Roboto", "sans-serif";
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 0.1pt;
+
+  backdrop-filter: blur(22px);
 `
 
 export const ModalInfo = styled.div`
@@ -35,11 +44,10 @@ export const ModalInfo = styled.div`
   padding: 0.3rem 8rem 0.3rem 8rem;
 
   div {
-    width: 25rem;
+    width: 15rem;
 
     span {
-      font-size: 1.75rem;
-
+      font-size: 1rem;
     }
   }
 
@@ -49,6 +57,7 @@ export const ModalInfo = styled.div`
     height: 1.5rem;
     font-size: 1rem;
     border-style: none;
+    border-radius: 5px;
   }
 
   textarea {
@@ -57,10 +66,11 @@ export const ModalInfo = styled.div`
     height: 4rem;
     font-size: 1rem;
     border-style: none;
+    border-radius: 5px;
   }
 
   &:first-child {
-    margin-top: 8rem;
+    margin-top: 2.5rem;
   }
 `
 
@@ -68,12 +78,12 @@ export const CheckContainer = styled.div`
   display: grid;
   padding: 0.3rem 6rem 0.3rem 8rem;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  font-size: 1.5rem;
+  font-size: 1rem;
 `;
 
 export const ButtonContainer = styled.div`
   width: 100%;
-
+  margin-top: 3rem;
   display: flex;
   justify-content: space-evenly;
 `;

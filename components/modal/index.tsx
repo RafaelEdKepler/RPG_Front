@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { toast, ToastContainer } from 'react-nextjs-toast'
 import { useMap } from "../../hooks/useMap";
 import api from "../../utils/api";
-import { Button, ButtonContainer, CheckContainer, Container, ModalInfo, ModalInfoContainer } from "./style"
+import { Button, ButtonContainer, CheckContainer, Container, ModalContainer, ModalInfo, ModalInfoContainer } from "./style"
 
 export interface modalProps {
   modalInfo: {
@@ -21,10 +21,11 @@ export interface modalProps {
   },
   positionX: number,
   positionY: number,
-  reloadFunction: () => void
+  reloadFunction: () => void,
+  functionOpenModal: (isOpen: boolean) => void,
 }
 
-export default function Modal({ modalInfo, positionX, positionY, reloadFunction }: modalProps) {
+export default function Modal({ modalInfo, positionX, positionY, reloadFunction, functionOpenModal }: modalProps) {
 
   const [name, setName] = useState<string>();
   const [description, setDescription] = useState<string>();
@@ -62,6 +63,7 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
           type: "success",
           title: "Tudo certo!",
         });
+        functionOpenModal(false);
         await reloadFunction();
       } else {
         toast.notify("Seus dados não puderam ser atualizados.", {
@@ -89,6 +91,7 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
           type: "success",
           title: "Tudo certo!",
         });
+        functionOpenModal(false);
         await reloadFunction();
       } else {
         toast.notify("Seus dados não puderam ser inseridos.", {
@@ -110,7 +113,11 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
     if (modalInfo && modalInfo.id) {
       const response = await api.delete(`/remove/${modalInfo.id}`);
       if (response.status === 200) {
-        alert('Deu certo!');
+        toast.notify("Seus dados foram excluídos com sucesso!", {
+          type: "success",
+          title: "Tudo certo!",
+        });
+        functionOpenModal(false);
         await reloadFunction();
       }
     }
@@ -155,79 +162,80 @@ export default function Modal({ modalInfo, positionX, positionY, reloadFunction 
         <Container
           id="container_map"
         >
-          <ToastContainer />
-          <ModalInfoContainer
-            positionX={modalPositionX}
-            positionY={modalPositionY}
-          >
-            <ModalInfo>
-              <div>
-                <span>Nome:</span>
-              </div>
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            </ModalInfo>
-            <ModalInfo>
-              <div>
-                <span>Descrição:</span>
-              </div>
-              <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-            </ModalInfo>
-            <ModalInfo>
-              <div>
-                <span>Anotações:</span>
-              </div>
-              <textarea value={obs} onChange={(e) => setObs(e.target.value)} />
-            </ModalInfo>
-            {showOption() && (
-              <>
-                <ModalInfo>
-                  <div>
-                    <span>Tamanho:</span>
-                  </div>
-                </ModalInfo>
-                <CheckContainer>
-                  <input type="radio" name="size" value="tribo" checked={size === "tribo"} onChange={(e) => e.target.checked && (setSize("tribo"))} />
-                  <div>
-                    <span>Tribo</span>
-                  </div>
-                  <input type="radio" name="size" value="vilarejo" checked={size === "vilarejo"} onChange={(e) => e.target.checked && (setSize("vilarejo"))} />
-                  <div>
-                    <span>Vilarejo</span>
-                  </div>
-                  <input type="radio" name="size" value="vila" checked={size === "vila"} onChange={(e) => e.target.checked && (setSize("vila"))} />
-                  <div>
-                    <span>Vila</span>
-                  </div>
-                  <input type="radio" name="size" value="cidade" checked={size === "cidade"} onChange={(e) => e.target.checked && (setSize("cidade"))} />
-                  <div>
-                    <span>Cidade</span>
-                  </div>
-                </CheckContainer>
-                <ModalInfo>
-                  <div>
-                    <span>Domínio:</span>
-                  </div>
-                  <input type="text" value={domain} onChange={(e) => setDomain(e.target.value)} />
-                </ModalInfo>
-              </>
-            )}
-            <ModalInfo>
-              <div>
-                <span>Local Atual:</span>
-              </div>
-              <input type="checkbox" checked={actualLocation === "1"} onChange={(e) => setActualLocation(e.target.checked ? "1" : "0")} />
-            </ModalInfo>
-            <ModalInfo>
-              <div>
-                <span>Objetivo:</span>
-              </div>
-              <input type="checkbox" checked={objective === "1"} onChange={(e) => setObjective(e.target.checked ? "1" : "0")} />
-            </ModalInfo>
-            <ButtonContainer>
-              <Button onClick={handleSave}>Salvar</Button>
-              <Button onClick={handleDelete}>Excluir</Button>
-            </ButtonContainer>
-          </ModalInfoContainer>
+          <ModalContainer>
+            <ModalInfoContainer
+              positionX={modalPositionX}
+              positionY={modalPositionY}
+            >
+              <ModalInfo>
+                <div>
+                  <span>Nome:</span>
+                </div>
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+              </ModalInfo>
+              <ModalInfo>
+                <div>
+                  <span>Descrição:</span>
+                </div>
+                <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+              </ModalInfo>
+              <ModalInfo>
+                <div>
+                  <span>Anotações:</span>
+                </div>
+                <textarea value={obs} onChange={(e) => setObs(e.target.value)} />
+              </ModalInfo>
+              {showOption() && (
+                <>
+                  <ModalInfo>
+                    <div>
+                      <span>Tamanho:</span>
+                    </div>
+                  </ModalInfo>
+                  <CheckContainer>
+                    <input type="radio" name="size" value="tribo" checked={size === "tribo"} onChange={(e) => e.target.checked && (setSize("tribo"))} />
+                    <div>
+                      <span>Tribo</span>
+                    </div>
+                    <input type="radio" name="size" value="vilarejo" checked={size === "vilarejo"} onChange={(e) => e.target.checked && (setSize("vilarejo"))} />
+                    <div>
+                      <span>Vilarejo</span>
+                    </div>
+                    <input type="radio" name="size" value="vila" checked={size === "vila"} onChange={(e) => e.target.checked && (setSize("vila"))} />
+                    <div>
+                      <span>Vila</span>
+                    </div>
+                    <input type="radio" name="size" value="cidade" checked={size === "cidade"} onChange={(e) => e.target.checked && (setSize("cidade"))} />
+                    <div>
+                      <span>Cidade</span>
+                    </div>
+                  </CheckContainer>
+                  <ModalInfo>
+                    <div>
+                      <span>Domínio:</span>
+                    </div>
+                    <input type="text" value={domain} onChange={(e) => setDomain(e.target.value)} />
+                  </ModalInfo>
+                </>
+              )}
+              <ModalInfo>
+                <div>
+                  <span>Local Atual:</span>
+                </div>
+                <input type="checkbox" checked={actualLocation === "1"} onChange={(e) => setActualLocation(e.target.checked ? "1" : "0")} />
+              </ModalInfo>
+              <ModalInfo>
+                <div>
+                  <span>Objetivo:</span>
+                </div>
+                <input type="checkbox" checked={objective === "1"} onChange={(e) => setObjective(e.target.checked ? "1" : "0")} />
+              </ModalInfo>
+              <ButtonContainer>
+                <Button onClick={handleSave}>Salvar</Button>
+                <Button onClick={handleDelete}>Excluir</Button>
+              </ButtonContainer>
+            </ModalInfoContainer>
+          </ModalContainer>
         </Container>
       )}
     </>

@@ -67,6 +67,7 @@ const Home: NextPage = () => {
           positionX={pageX}
           positionY={pageY}
           reloadFunction={reloadFunction}
+          functionOpenModal={setIsOpen}
         />
       )}
       <Container>
