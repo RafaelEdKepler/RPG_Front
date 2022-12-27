@@ -4,6 +4,14 @@ interface ContainerProps {
   fixed: boolean;
 }
 
+interface DropdownProps {
+  visible?: boolean
+}
+
+interface LayerProps {
+  checked?: boolean
+}
+
 export const Container = styled.div<ContainerProps>`
   width: 100vw;
   height: ${props => props.fixed ? "2.5rem" : "0.5rem"};
@@ -18,6 +26,9 @@ export const Container = styled.div<ContainerProps>`
   transition: 0.2s;
 
   div:first-child {
+
+    display: flex;
+    flex-direction: row;
 
     input {
       display: none;
@@ -76,6 +87,52 @@ export const Container = styled.div<ContainerProps>`
     }
   }
 `;
+
+export const Menu = styled.span`
+  margin-left: 1.5rem;
+  cursor: pointer;
+`;
+
+export const Dropdown = styled.ul<DropdownProps>`
+
+  display: ${props => props.visible ? "flex" : "none"};
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  border-style: solid;
+  border-width: 1pt;
+  padding: 0;
+  width: 6rem;
+  background-color: rgba(255,255,255,0.5);
+`;
+
+export const Layer = styled.li<LayerProps>`
+  list-style: none;
+  border-style: solid;
+  border-width: 1pt 0 0 0;
+  height: 2rem;
+  font-weight: ${props => props.checked ? "bold" : "12px"};
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &:first-child {
+    border-style: none;
+  }
+
+  & + svg {
+    justify-content: space-between;
+  }
+
+  &:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
+`
 
 export const Image = styled.img`
   width: 25px;

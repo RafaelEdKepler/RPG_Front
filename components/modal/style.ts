@@ -22,7 +22,8 @@ export const Container = styled.div`
 
 export const ModalContainer = styled.div`
   border-radius: 15px;
-  background-image: url("./modal.webp");
+  background-color: url("./modal.webp");
+  background-size: cover;
 `;
 
 export const ModalInfoContainer = styled.div<ModalInfoContainerProps>`
