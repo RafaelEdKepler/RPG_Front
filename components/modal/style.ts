@@ -22,7 +22,7 @@ export const Container = styled.div`
 
 export const ModalContainer = styled.div`
   border-radius: 15px;
-  background-image: url("./modal.webp");
+  background: #FFF;
 `;
 
 export const ModalInfoContainer = styled.div<ModalInfoContainerProps>`
@@ -39,6 +39,11 @@ export const ModalInfoContainer = styled.div<ModalInfoContainerProps>`
   border-width: 0.1pt;
 
   backdrop-filter: blur(22px);
+
+  @media (min-width: 1200px) {
+    width: 35rem;
+    height: 30rem;
+  }
 `
 
 export const ModalInfo = styled.div`
@@ -57,24 +62,27 @@ export const ModalInfo = styled.div`
 
   input {
     margin-left: 1rem;
-    width: 47rem;
+    width: 100%;
     height: 1.5rem;
     font-size: 1rem;
-    border-style: none;
     border-radius: 5px;
+    border-width: 1pt;
   }
 
   textarea {
     resize: none;
-    width: 100%;
+    width: 90%;
     height: 4rem;
     font-size: 1rem;
-    border-style: none;
     border-radius: 5px;
   }
 
   &:first-child {
     margin-top: 2.5rem;
+  }
+
+  @media(min-width: 1200px) {
+    padding: 0.3rem 2rem 0.3rem 2rem;
   }
 `
 

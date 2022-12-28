@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <Container fixed={sizeFixed}>
       <div>
-        <input checked={sizeFixed} type="checkbox" onClick={() => setSizeFixed(!sizeFixed)} id="check" />
+        <input checked={sizeFixed} type="checkbox" onChange={() => setSizeFixed(!sizeFixed)} id="check" />
         <label htmlFor="check" />
       </div>
       <div>

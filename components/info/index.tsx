@@ -23,7 +23,7 @@ export default function Info({ data, handleClick, dataModal }: any) {
       if (type === "width") {
         return (proportion * window.screen.width) / 100;
       } else {
-        return (proportion * window.screen.height) / 100;
+        return (proportion * window.screen.height) / 100 - 50;
       }
     }
     return mouse;
