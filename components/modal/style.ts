@@ -57,24 +57,11 @@ export const ModalInfo = styled.div`
 
     span {
       font-size: 1rem;
+
+      @media (min-width: 1200px) {
+        font-size: 0.85rem;
+      }
     }
-  }
-
-  input {
-    margin-left: 1rem;
-    width: 100%;
-    height: 1.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    border-width: 1pt;
-  }
-
-  textarea {
-    resize: none;
-    width: 90%;
-    height: 4rem;
-    font-size: 1rem;
-    border-radius: 5px;
   }
 
   &:first-child {
@@ -83,14 +70,41 @@ export const ModalInfo = styled.div`
 
   @media(min-width: 1200px) {
     padding: 0.3rem 2rem 0.3rem 2rem;
+    height: 2.5rem;
   }
 `
+
+export const Field = styled.input`
+  margin-left: 1rem;
+  width: 100%;
+  height: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border-width: 1pt;
+`;
+
+export const LargeField = styled.textarea`
+  resize: none;
+  width: 90%;
+  height: 4rem;
+  font-size: 1rem;
+  border-radius: 5px;
+
+  @media (min-width: 1200px) {
+    height: 2rem;
+    padding: 0.25rem 0;
+  }
+`;
 
 export const CheckContainer = styled.div`
   display: grid;
   padding: 0.3rem 6rem 0.3rem 8rem;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   font-size: 1rem;
+
+  @media (min-width: 1200px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -101,6 +115,10 @@ export const ButtonContainer = styled.div`
   justify-content: space-evenly;
   align-items: flex-end;
   padding: 0 0 3rem 0;
+
+  @media (min-width: 1200px) {
+    margin-top: 0.75rem;
+  }
 `;
 
 export const Button = styled.button<ButtonProps>`

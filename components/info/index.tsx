@@ -33,12 +33,10 @@ export default function Info({ data, handleClick, dataModal }: any) {
     return `${tooltips[type as keyof iconToolTipProps]} - ${name}`;
   }
 
-
   return (
     <ContainerInfo
       id="container_map"
     >
-      {console.log(data)}
       {data && data.map((item: any) => (
         <div key={item.id}>
           <ToolTip text={handleTooltip(item.type, item.name)}>

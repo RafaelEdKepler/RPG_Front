@@ -19,6 +19,10 @@ export const Container = styled.div<ContainerProps>`
 
   div:first-child {
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     input {
       display: none;
       transition: 0.2s;
@@ -85,9 +89,22 @@ export const Image = styled.img`
   top: 0.5rem;
 `;
 
-export const InputContainer = styled.div`
+export const Menu = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 
-  input {
+  span {
+    font-size: 1rem;
+    min-width: 5rem;
+    cursor: pointer;
 
+    &:hover {
+      font-weight: bold;
+    }
+
+    &:first-child {
+      margin-left: 1rem;
+    }
   }
 `;

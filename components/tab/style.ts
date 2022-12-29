@@ -48,6 +48,11 @@ export const Image = styled.img<ImageProps>`
   border-color: ${props => props.selected ? "#000" : "rgba(0, 0, 0, 0.0)"};
   border-width: 1pt;
   border-radius: 5px;
+
+  @media (min-width: 1200px) {
+    height: ${props => props.display === "flex" ? "3rem" : "0"};
+    width: ${props => props.display === "flex" ? "3rem" : "0"};
+  }
 `;
 
 export const HandleTab = styled.div`
